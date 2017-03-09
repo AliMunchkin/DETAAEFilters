@@ -63,9 +63,17 @@ static void setAudioUnitParameterValue(AudioUnit audioUnit, AudioUnitParameterID
     
     NSError *error = nil;
     
-    id filter = [[[self class] alloc] initWithComponentDescription: component
-                                                   audioController: controller
-                                                             error: &error];
+    //######################################################################################################
+    //####################################### COCOAPOD SOURCE CHANGED ######################################
+    //########################################## ALEX: 26 Feb 2016 #########################################
+    //############################ Updated to new use new init method signature ############################
+    //########## Note that DETAAEFilters are now merged into TAAE. However this does not seem to ###########
+    //############## include DEVolumeFilter, so this DETAAEFilters Cocoapod is still required ##############
+    //######################################################################################################
+//  id filter = [[[self class] alloc] initWithComponentDescription: component
+//                                                 audioController: controller
+//                                                           error: &error];
+    id filter = [[[self class] alloc] initWithComponentDescription: component];
     
     if (error) {
         return nil;
